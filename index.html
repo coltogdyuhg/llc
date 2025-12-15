@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLC - Lucas Lucas Colton</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* LLC Pond Website CSS */
+
+        /* --- 1. Color and Font Variables --- */
+        :root {
+            --color-black: #0A0A0A;         /* Deep background */
+            --color-dark-green: #1A431A;    /* Primary dark accent/navigation */
+            --color-muted-green: #B0C4B0;   /* Light green text for readability */
+            --color-bright-blue: #00FFFF;   /* Primary accent/water color */
+            --color-lighter-blue: #CCFFFF;  /* Hover accent */
+            --font-primary: 'Open Sans', sans-serif;
+        }
+
+        /* --- 2. Global Styles --- */
+        body {
+            background-color: var(--color-black);
+            color: var(--color-muted-green);
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: var(--color-bright-blue);
+            font-weight: 700;
+        }
+
+        a {
+            color: var(--color-bright-blue);
+            text-decoration: none;
+        }
+
+        /* --- 3. Header and Navigation --- */
+        header {
+            background-color: var(--color-dark-green);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo h1 {
+            font-size: 2.2em;
+            margin: 0;
+        }
+
+        .logo p {
+            font-size: 0.8em;
+            margin: 0;
+            color: var(--color-muted-green);
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            margin-left: 25px;
+            font-size: 1.1em;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-lighter-blue);
+            border-bottom: 2px solid var(--color-bright-blue);
+        }
+
+        /* --- 4. Hero Section (Home) --- */
+        .hero {
+            background: url('https://via.placeholder.com/1500x700/0A0A0A/00FFFF?text=LLC+Pond+View') center/cover no-repeat;
+            /* Replace the placeholder with a real image of the pond/woods */
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Dark overlay for text readability */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); 
+            z-index: 1;
+        }
+        
+        .hero-content {
+            z-index: 2; /* Ensures content is above the overlay */
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--color-black);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        /* --- 5. Content Sections --- */
+        .content-section {
+            padding: 60px 15%;
+            text-align: center;
+        }
+
+        .content-section h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+
+        .content-section p {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .content-section li {
+            padding: 5px 0;
+        }
+
+        /* --- 6. CTA Button Styling --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-dark-green);
+            color: var(--color-bright-blue);
+            padding: 12px 25px;
+            border: 2px solid var(--color-bright-blue);
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-bright-blue);
+            color: var(--color-dark-green); /* Flip the colors on hover */
+            border-color: var(--color-dark-green);
+        }
+
+        /* --- 7. Gallery Section --- */
+        .gallery-section {
+            background-color: var(--color-dark-green); /* Dark Green background for contrast */
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .gallery-section h3 {
+            color: var(--color-bright-blue);
+            margin-bottom: 40px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background-color: var(--color-black);
+            color: var(--color-bright-blue);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            border: 1px dashed var(--color-muted-green);
+        }
+
+        /* --- 8. Footer --- */
+        footer {
+            background-color: var(--color-black);
+            color: var(--color-muted-green);
+            text-align: center;
+            padding: 20px 0;
+            border-top: 2px solid var(--color-dark-green);
+            font-size: 0.9em;
+        }
+
+        .small-text {
+            font-size: 0.8em;
+            margin-top: 5px;
+            color: var(--color-muted-green);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>LLC</h1>
+            <p>Lucas Lucas Colton</p>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">The Pond</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>The Secret Spot in the Woods</h2>
+            <p>Discover the serenity and secluded beauty of Lucas Lucas Colton (LLC), our private woodland pound.</p>
+            <a href="#gallery" class="cta-button">See the Water</a>
+        </div>
+    </section>
+
+    <section id="about" class="content-section">
+        <h3>A Hidden Sanctuary</h3>
+        <p>Tucked away deep within our friend's woods, LLC is more than just a pound—it's a retreat. The dark, still waters of Lucas Lucas Colton reflect the towering canopy, creating a unique and moody atmosphere that changes with every season.</p>
+        <p>This spot is maintained by friends, for friends, focused on preserving the natural, undisturbed ecosystem.</p>
+        <ul>
+            <li>**Mood:** Dark & Tranquil</li>
+            <li>**Ecosystem:** Local Fauna & Flora</li>
+            <li>**Location:** Friends-Only Access</li>
+        </ul>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <h3>Glimpses of LLC</h3>
+        <div class="image-grid">
+            <div class="gallery-item">Image 1 Placeholder (Deep Water)</div>
+            <div class="gallery-item">Image 2 Placeholder (Overhead Trees)</div>
+            <div class="gallery-item">Image 3 Placeholder (Wildlife)</div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section contact-section">
+        <h3>Connect with the Keepers</h3>
+        <p>Access to LLC is private. For inquiries or updates about the Lucas Lucas Colton pond, please reach out to the friend group.</p>
+        <a href="mailto:info@lucascolton-pond.com" class="cta-button">Email Us</a>
+        <p class="small-text">Note: This is a placeholder email for demonstration.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LLC - Lucas Lucas Colton. Preserving the quiet.</p>
+    </footer>
+
+</body>
+</html>
