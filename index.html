@@ -7,19 +7,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. Color and Font Variables --- */
+        /* --- 1. Color and Font Variables (Adjusted for image palette) --- */
         :root {
-            --color-deep-green: #153E15;    /* NEW PRIMARY BACKGROUND: Deep Forest Green */
-            --color-dark-accent: #0C1E0C;   /* Darker Green/Black for high-contrast sections */
-            --color-text-light: #E0EAE0;    /* Near-white for primary text contrast */
-            --color-accent-blue: #00BFFF;   /* A sharp, contemporary light blue (Sky Blue) */
-            --color-hover-blue: #66FFFF;    /* Lighter blue for interaction */
+            --color-primary-dark-green: #153E15; /* Main BG and Content Container */
+            --color-dark-accent: #0C1E0C;      /* Header/Footer/Feature BG */
+            --color-text-light: #E0EAE0;       /* Near-white for contrast */
+            --color-hero-heading: #1AD7E2;     /* Bright Cyan/Blue for H2 */
+            --color-link-blue: #00BFFF;        /* Standard Link Blue */
+            --color-cta-blue: #00BFFF;         /* CTA Button Blue */
             --font-primary: 'Inter', sans-serif;
+            --header-height: 80px;
         }
 
         /* --- 2. Global Styles --- */
         body {
-            background-color: var(--color-deep-green); /* Main color is Dark Green */
+            background-color: var(--color-primary-dark-green);
             color: var(--color-text-light);
             font-family: var(--font-primary);
             margin: 0;
@@ -28,87 +30,99 @@
             text-rendering: optimizeLegibility;
         }
 
-        h1, h2, h3 {
-            color: var(--color-accent-blue);
+        h1, h2, h3, h4 {
+            color: var(--color-link-blue);
             font-weight: 700;
+        }
+        
+        /* H2 is the massive heading in the hero section */
+        .hero h2 {
+            color: var(--color-hero-heading);
+            font-size: 3.5em; 
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        
+        /* H3 is the section heading */
+        .content-section h3 {
+            color: var(--color-link-blue);
+            font-size: 2.2em;
+            margin-bottom: 40px;
         }
 
         a {
-            color: var(--color-accent-blue);
+            color: var(--color-link-blue);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         a:hover {
-            color: var(--color-hover-blue);
+            color: var(--color-text-light);
         }
 
-        /* --- 3. Header and Navigation --- */
+        /* --- 3. Header and Navigation (Image Style) --- */
         header {
-            background-color: var(--color-dark-accent); /* Darkest part */
+            background-color: var(--color-dark-accent);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: fixed;
             width: 100%;
+            height: var(--header-height);
             box-sizing: border-box;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
         }
 
         .logo h1 {
-            font-size: 1.8em;
-            margin: 0;
-            line-height: 1;
+            font-size: 1.2em; /* Smaller H1 */
+            margin-right: 5px;
+            color: var(--color-cta-blue);
         }
 
         .logo p {
-            font-size: 0.8em;
+            font-size: 0.6em; /* Smaller subtitle */
             margin: 0;
             color: var(--color-text-light); 
-            letter-spacing: 2px;
-            font-weight: 500;
+            letter-spacing: 1px;
+            font-weight: 300;
         }
 
-        nav a {
-            margin-left: 30px;
-            font-size: 0.95em;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            position: relative;
-        }
-        
-        /* Modern underline hover effect */
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--color-accent-blue);
-            transition: width 0.3s ease-in-out;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* --- 4. Hero Section (Wide and Focused) --- */
-        .hero {
-            /* Hero background now uses Dark Accent color to provide depth */
-            background: url('https://via.placeholder.com/1500x800/153E15/00BFFF?text=LLC+Pond+View') center/cover no-repeat;
-            min-height: 85vh;
+        nav {
             display: flex;
             align-items: center;
-            text-align: left;
-            position: relative;
-            padding-top: 100px; 
-            padding-left: 5%;
         }
         
-        /* Softer overlay */
+        nav .nav-links a {
+            margin-left: 20px;
+            font-size: 0.95em;
+            font-weight: 500;
+            color: var(--color-text-light); /* Links are white */
+        }
+        
+        nav .nav-links a:hover {
+            color: var(--color-cta-blue); /* Hover is blue */
+        }
+
+        /* --- 4. Hero Section (Image Style) --- */
+        .hero {
+            background: url('https://via.placeholder.com/1500x700/153E15/00BFFF?text=Pond+View+Hero+Image') center/cover no-repeat;
+            min-height: 600px; /* Specific height for the image */
+            display: flex;
+            align-items: flex-end; /* Align content to the bottom-left */
+            position: relative;
+            padding: 0 5%;
+            padding-bottom: 50px;
+            padding-top: var(--header-height);
+        }
+        
+        /* Gradient overlay covering the content area */
         .hero::after {
             content: '';
             position: absolute;
@@ -116,138 +130,149 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, rgba(21, 62, 21, 0.7) 0%, rgba(21, 62, 21, 0.1) 100%); 
+            background: linear-gradient(180deg, rgba(21, 62, 21, 0.1) 0%, var(--color-primary-dark-green) 100%); 
             z-index: 1;
         }
         
         .hero-content {
             z-index: 2; 
-            max-width: 600px;
+            max-width: 500px;
+            text-align: left;
         }
-
-        .hero h2 {
-            font-size: 3.5em; 
-            line-height: 1.2;
-            margin-bottom: 15px;
-            color: var(--color-text-light); /* White heading on the image */
-        }
-
-        .hero p {
-            font-size: 1.25em;
-            margin-bottom: 30px;
-            font-weight: 300;
+        
+        .hero-content p {
             color: var(--color-text-light);
+            font-weight: 300;
+            line-height: 1.4;
         }
 
         /* --- 5. Content Sections (Minimalist) --- */
-        .content-section {
-            padding: 100px 10%;
-            text-align: center;
+        .content-area-wrapper {
+            background-color: var(--color-primary-dark-green);
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* 1/3 and 2/3 column layout */
+            gap: 50px;
         }
-
-        .content-section h3 {
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: var(--color-accent-blue);
+        
+        .section-left h3, .section-right h3 {
+             color: var(--color-link-blue);
+             font-size: 1.8em;
+             margin-top: 0;
         }
-
-        /* About Grid uses the darkest accent for contrast */
-        #about {
-            background-color: var(--color-dark-accent);
+        
+        .section-left h4 {
+            color: var(--color-text-light);
+            font-size: 1.5em;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
-
-        #about h3 {
+        
+        .section-left .feature-item {
+            padding: 0;
+            background: none;
+            box-shadow: none;
+            margin-top: 20px;
+        }
+        
+        .section-left .feature-item p {
+            font-size: 0.9em;
             color: var(--color-text-light);
         }
-
-        #about .about-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-            text-align: left;
-        }
-
-        .feature-item {
-            padding: 30px;
-            /* Feature item uses the main deep green background */
-            background-color: var(--color-deep-green); 
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .feature-item h4 {
-            color: var(--color-accent-blue);
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        /* --- 6. CTA Button Styling (Ghost/Outline style) --- */
+        
+        /* --- 6. CTA Button Styling (Futuristic/Sharp) --- */
         .cta-button {
             display: inline-block;
             background-color: transparent;
-            color: var(--color-accent-blue);
-            padding: 14px 30px;
-            border: 2px solid var(--color-accent-blue);
-            border-radius: 5px; 
+            color: var(--color-cta-blue);
+            padding: 12px 25px;
+            border: 2px solid var(--color-cta-blue);
+            border-radius: 0; /* Sharp, modern look */
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px; /* Increased letter spacing */
             margin-top: 20px;
             transition: all 0.3s;
+            box-shadow: 0 0 5px var(--color-cta-blue); /* Subtle initial glow */
         }
 
         .cta-button:hover {
-            background-color: var(--color-accent-blue);
-            color: var(--color-dark-accent); /* Darkest green text on blue fill */
-            border-color: var(--color-accent-blue);
-            box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+            background-color: var(--color-cta-blue);
+            color: var(--color-dark-accent); 
+            border-color: var(--color-cta-blue);
+            box-shadow: 0 0 20px var(--color-cta-blue); /* Stronger glow on hover */
+            transform: translateY(-2px); /* Slight lift */
+        }
+        
+        /* Specific Button Style for Header CTA (EUTTACS) */
+        .header-cta-button {
+            background-color: var(--color-cta-blue);
+            color: var(--color-dark-accent); 
+            padding: 10px 20px;
+            border: 2px solid var(--color-cta-blue);
+            border-radius: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-left: 20px;
+            transition: background-color 0.3s;
+            box-shadow: none;
+        }
+        
+        .header-cta-button:hover {
+            background-color: transparent;
+            color: var(--color-cta-blue);
+            box-shadow: 0 0 10px var(--color-cta-blue);
+            transform: none;
         }
 
-        /* --- 7. Gallery Section (Modern Grid) --- */
+        /* --- 7. Gallery Section (Image Style) --- */
         .gallery-section {
-            background-color: var(--color-deep-green);
-            padding: 100px 5%;
+            background-color: var(--color-primary-dark-green);
+            padding: 50px 5%;
+        }
+        
+        .gallery-section h3 {
+             text-align: center;
         }
 
         .image-grid {
+            /* 3-column grid, 2 rows */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
             gap: 20px;
-            max-width: 1400px;
-            margin: 40px auto 0 auto;
+            max-width: 1200px;
+            margin: 40px auto;
         }
 
         .gallery-item {
-            /* Gallery item uses the darker accent for definition */
             background-color: var(--color-dark-accent);
             color: var(--color-text-light);
-            height: 300px;
+            height: 200px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
+            align-items: flex-end; /* Align content bottom-left */
+            justify-content: flex-start;
+            padding: 10px;
+            font-size: 0.9em;
             font-weight: 300;
-            font-size: 1.1em;
-            border-radius: 8px;
+            border-radius: 0; /* Sharp corners */
             overflow: hidden;
-            transition: transform 0.3s;
             background-size: cover;
             background-position: center;
+            border: 1px solid rgba(0, 191, 255, 0.1); /* Subtle blue border */
         }
         
         .gallery-item:hover {
-            transform: scale(1.03);
+            transform: none;
         }
 
         /* --- 8. Footer --- */
         footer {
-            background-color: var(--color-dark-accent); /* Darkest accent for footer */
+            background-color: var(--color-dark-accent); 
             color: var(--color-text-light);
             text-align: center;
-            padding: 30px 0;
+            padding: 20px 0;
             font-size: 0.9em;
             font-weight: 300;
         }
@@ -256,67 +281,76 @@
 <body>
 
     <header>
-        <div class="logo">
-            <h1>LLC</h1>
-            <p>LUCAS LUCAS COLTON</p>
+        <div class="header-left">
+            <div class="logo">
+                <h1>LLC</h1>
+                <p>LUCAS LUCAS COLTON</p>
+            </div>
+            <p style="font-size: 0.6em; color: var(--color-text-light); margin-left: 20px; opacity: 0.5;">hsc/v/sio 5060:19200</p>
         </div>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#about">The Pond</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
+            <div class="nav-links">
+                <a href="#home">Howe</a>
+                <a href="#about">Beenics</a>
+                <a href="#gallery">Alimencts</a>
+                <a href="#contact">Cond ing</a>
+            </div>
+            <a href="#contact" class="header-cta-button">EUTTACS</a>
         </nav>
     </header>
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>The Deep, Quiet Heart of the Woods</h2>
-            <p>Discover Lucas Lucas Colton: an exclusive, high-contrast sanctuary where the rich forest green meets the bright, reflective blue of the water.</p>
-            <a href="#gallery" class="cta-button">View the Gallery</a>
+            <h2>H2 5 Furcats Leaton, Pond View</h2>
+            <p>Untpany lolorin tloldon soo arck comigh torx and mambunt tole.</p>
+            <a href="#contact" class="cta-button">CTA BUTTON</a>
         </div>
     </section>
 
-    <section id="about" class="content-section">
-        <h3>Why LLC Is Kept Secret</h3>
-        <p>This private pound is carefully maintained by friends to preserve its unique mood. It is a modern refuge from the digital world, focusing on elemental beauty and community.</p>
+    <div class="content-area-wrapper">
         
-        <div class="about-features">
+        <section id="about" class="section-left">
+            <h3>Content Section</h3>
             
+            <h4 style="color: var(--color-link-blue); margin-bottom: 25px;">H3</h4>
+            
+            <h4 style="color: var(--color-text-light);">Cooldrt H4 About Featrurs</h4>
+            <p style="font-size: 0.9em; color: var(--color-text-light);">
+                Color tloert averlane cee thope is hing hein tlont stote to our proat heelort vithlty arlabryti to aterior beath eedingbeam.
+            </p>
+            
+            <h4 style="color: var(--color-hero-heading);">Features Item</h4>
             <div class="feature-item">
-                <h4>Intentional Design</h4>
-                <p>The dark forest green waters provide a deep canvas for the bright blue sky—a striking, naturally-occurring color palette that feels intentionally designed and calming.</p>
+                <p>Color stritnne sent to cachessin to accorinae the fay sorching it yeat ccomlam simre threedon moce emttt the hiichls.</p>
             </div>
-            
-            <div class="feature-item">
-                <h4>Community & Trust</h4>
-                <p>We believe in sharing this spot only through trust. Access is restricted to the inner circle, ensuring its character and serenity are never compromised.</p>
-            </div>
-            
-            <div class="feature-item">
-                <h4>Minimal Impact</h4>
-                <p>Our goal is to leave no trace. Every visit reinforces the commitment to the natural, undisturbed ecosystem. The focus is on observation, not interference.</p>
-            </div>
-            
-        </div>
-    </section>
+        </section>
 
-    <section id="gallery" class="gallery-section">
-        <h3>Moments at Lucas Lucas Colton</h3>
-        <div class="image-grid">
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/153E15/E0EAE0?text=Surface+Reflections')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0C1E0C/00BFFF?text=Blue+Moss+on+Trees')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/153E15/E0EAE0?text=Stillness+at+Dawn')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0C1E0C/00BFFF?text=Path+to+the+Water')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/153E15/E0EAE0?text=Water+Detail')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0C1E0C/00BFFF?text=Tree+Line+Silhouette')"></div>
-        </div>
-    </section>
+        <section class="section-right">
+            <h3>Content Buction</h3>
+            
+            <h4 style="color: var(--color-text-light); font-size: 1.5em; margin-top: 20px;">About Stols</h4>
+            
+            <div class="image-grid">
+                <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x200/153E15/E0EAE0?text=Photo+1')">Tes claer to vfte cange peortfner</div>
+                <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x200/0C1E0C/00BFFF?text=Photo+2')">Tee troore flor tlraar oe to necsofiter</div>
+                <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x200/153E15/E0EAE0?text=Photo+3')">Be toortser foris cobrie pentler</div>
+                <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x200/0C1E0C/00BFFF?text=Photo+4')">The fo ore liry clurcaio rmaght tllary</div>
+                <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x200/153E15/E0EAE0?text=Photo+5')">Tes claer to vfte cange peortfner</div>
+                <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x200/0C1E0C/00BFFF?text=Photo+6')">Tee troore flor tlraar oe to necsofiter</div>
+            </div>
+            
+            <h4 style="color: var(--color-link-blue); font-size: 1.8em; margin-top: 50px;">Gallery Toting</h4>
+            <p style="font-size: 0.9em; color: var(--color-text-light);">
+                The tnelorn dolor or th anor ablertallrtange and sunsing ooraird adictloy. Tnsiacce the aceland ablwertre sto lessind thes the elursoud. thrt ung ose tovw latne oush is nd unce ad ap and tor sllord al ald tkaat. tio ndler coloe asitoufo or olurquis to her afofdins.
+            </p>
+        </section>
+    </div>
 
-    <section id="contact" class="content-section contact-section">
-        <h3>Connect with the Keepers</h3>
-        <p>As this is a private location, please use discretion. For essential communication regarding the Lucas Lucas Colton pond, contact the core group directly.</p>
+    <section id="contact" class="content-section" style="padding: 50px 10%; text-align: center;">
+        <h3 style="margin-bottom: 20px;">Connect with the Keepers</h3>
+        <p>For essential communication regarding the Lucas Lucas Colton pond, contact the core group directly.</p>
         <a href="mailto:info@lucascolton-pond.com" class="cta-button">Initiate Contact</a>
-        <p style="font-size: 0.85em; margin-top: 30px; color: var(--color-text-light);">Note: This is a placeholder email. Please respect the private nature of LLC.</p>
+        <p style="font-size: 0.85em; margin-top: 30px; color: var(--color-text-light); opacity: 0.6;">Note: This is a placeholder email. Please respect the private nature of LLC.</p>
     </section>
 
     <footer>
