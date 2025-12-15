@@ -9,23 +9,23 @@
     <style>
         /* --- 1. Color and Font Variables --- */
         :root {
-            --color-black: #0D0D0D;         /* Slightly softer black background */
-            --color-dark-green: #265B26;    /* Richer, deeper dark green */
-            --color-text-light: #F0F5F0;    /* Near-white for primary text contrast */
-            --color-accent-blue: #00BFFF;   /* A calming, contemporary bright blue (Sky Blue) */
+            --color-deep-green: #153E15;    /* NEW PRIMARY BACKGROUND: Deep Forest Green */
+            --color-dark-accent: #0C1E0C;   /* Darker Green/Black for high-contrast sections */
+            --color-text-light: #E0EAE0;    /* Near-white for primary text contrast */
+            --color-accent-blue: #00BFFF;   /* A sharp, contemporary light blue (Sky Blue) */
             --color-hover-blue: #66FFFF;    /* Lighter blue for interaction */
             --font-primary: 'Inter', sans-serif;
         }
 
         /* --- 2. Global Styles --- */
         body {
-            background-color: var(--color-black);
+            background-color: var(--color-deep-green); /* Main color is Dark Green */
             color: var(--color-text-light);
             font-family: var(--font-primary);
             margin: 0;
             padding: 0;
             line-height: 1.65;
-            text-rendering: optimizeLegibility; /* Improves font display */
+            text-rendering: optimizeLegibility;
         }
 
         h1, h2, h3 {
@@ -43,9 +43,9 @@
             color: var(--color-hover-blue);
         }
 
-        /* --- 3. Header and Navigation (Clean and Fixed) --- */
+        /* --- 3. Header and Navigation --- */
         header {
-            background-color: var(--color-black); 
+            background-color: var(--color-dark-accent); /* Darkest part */
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
@@ -54,12 +54,11 @@
             width: 100%;
             box-sizing: border-box;
             z-index: 1000;
-            /* Subtle modern shadow instead of a hard border */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
         }
 
         .logo h1 {
-            font-size: 1.8em; /* Reduced size for modern feel */
+            font-size: 1.8em;
             margin: 0;
             line-height: 1;
         }
@@ -67,7 +66,7 @@
         .logo p {
             font-size: 0.8em;
             margin: 0;
-            color: var(--color-dark-green); /* Subtle green for secondary text */
+            color: var(--color-text-light); 
             letter-spacing: 2px;
             font-weight: 500;
         }
@@ -98,14 +97,15 @@
 
         /* --- 4. Hero Section (Wide and Focused) --- */
         .hero {
-            background: url('https://via.placeholder.com/1500x800/0D0D0D/00BFFF?text=LLC+Pond+View') center/cover no-repeat;
+            /* Hero background now uses Dark Accent color to provide depth */
+            background: url('https://via.placeholder.com/1500x800/153E15/00BFFF?text=LLC+Pond+View') center/cover no-repeat;
             min-height: 85vh;
             display: flex;
             align-items: center;
             text-align: left;
             position: relative;
             padding-top: 100px; 
-            padding-left: 5%; /* Align content left */
+            padding-left: 5%;
         }
         
         /* Softer overlay */
@@ -116,7 +116,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, rgba(13, 13, 13, 0.7) 0%, rgba(13, 13, 13, 0.1) 100%); 
+            background: linear-gradient(90deg, rgba(21, 62, 21, 0.7) 0%, rgba(21, 62, 21, 0.1) 100%); 
             z-index: 1;
         }
         
@@ -129,14 +129,14 @@
             font-size: 3.5em; 
             line-height: 1.2;
             margin-bottom: 15px;
-            color: var(--color-text-light); /* White heading on dark image */
+            color: var(--color-text-light); /* White heading on the image */
         }
 
         .hero p {
             font-size: 1.25em;
             margin-bottom: 30px;
             font-weight: 300;
-            color: var(--color-muted-green);
+            color: var(--color-text-light);
         }
 
         /* --- 5. Content Sections (Minimalist) --- */
@@ -151,9 +151,9 @@
             color: var(--color-accent-blue);
         }
 
-        /* About Grid */
+        /* About Grid uses the darkest accent for contrast */
         #about {
-            background-color: var(--color-dark-green);
+            background-color: var(--color-dark-accent);
         }
 
         #about h3 {
@@ -170,9 +170,10 @@
 
         .feature-item {
             padding: 30px;
-            background-color: rgba(0, 0, 0, 0.2); 
-            border-radius: 8px; /* Slightly rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle lift */
+            /* Feature item uses the main deep green background */
+            background-color: var(--color-deep-green); 
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .feature-item h4 {
@@ -181,10 +182,6 @@
             margin-top: 0;
             margin-bottom: 10px;
             font-weight: 500;
-        }
-
-        .feature-item p {
-            font-weight: 300;
         }
 
         /* --- 6. CTA Button Styling (Ghost/Outline style) --- */
@@ -204,14 +201,14 @@
 
         .cta-button:hover {
             background-color: var(--color-accent-blue);
-            color: var(--color-black); /* Dark text on blue fill */
+            color: var(--color-dark-accent); /* Darkest green text on blue fill */
             border-color: var(--color-accent-blue);
-            box-shadow: 0 0 15px rgba(0, 191, 255, 0.7); /* Subtle neon glow on hover */
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
         }
 
         /* --- 7. Gallery Section (Modern Grid) --- */
         .gallery-section {
-            background-color: var(--color-black);
+            background-color: var(--color-deep-green);
             padding: 100px 5%;
         }
 
@@ -224,7 +221,8 @@
         }
 
         .gallery-item {
-            background-color: var(--color-dark-green);
+            /* Gallery item uses the darker accent for definition */
+            background-color: var(--color-dark-accent);
             color: var(--color-text-light);
             height: 300px;
             display: flex;
@@ -236,18 +234,17 @@
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s;
-            /* Placeholder for image styling */
             background-size: cover;
             background-position: center;
         }
         
         .gallery-item:hover {
-            transform: scale(1.03); /* Subtle zoom effect */
+            transform: scale(1.03);
         }
 
         /* --- 8. Footer --- */
         footer {
-            background-color: var(--color-dark-green); /* Using Dark Green for the footer */
+            background-color: var(--color-dark-accent); /* Darkest accent for footer */
             color: var(--color-text-light);
             text-align: center;
             padding: 30px 0;
@@ -274,7 +271,7 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h2>The Deep, Quiet Heart of the Woods</h2>
-            <p>Discover Lucas Lucas Colton: an exclusive, high-contrast sanctuary where the deep green forest meets the bright, reflective blue of the water.</p>
+            <p>Discover Lucas Lucas Colton: an exclusive, high-contrast sanctuary where the rich forest green meets the bright, reflective blue of the water.</p>
             <a href="#gallery" class="cta-button">View the Gallery</a>
         </div>
     </section>
@@ -287,7 +284,7 @@
             
             <div class="feature-item">
                 <h4>Intentional Design</h4>
-                <p>The dark forest green and deep black waters provide a canvas for the electric blue sky—a striking, naturally-occurring color palette that feels intentionally designed.</p>
+                <p>The dark forest green waters provide a deep canvas for the bright blue sky—a striking, naturally-occurring color palette that feels intentionally designed and calming.</p>
             </div>
             
             <div class="feature-item">
@@ -306,12 +303,12 @@
     <section id="gallery" class="gallery-section">
         <h3>Moments at Lucas Lucas Colton</h3>
         <div class="image-grid">
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/265B26/F0F5F0?text=Surface+Reflections')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0D0D0D/00BFFF?text=Blue+Moss+on+Trees')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/265B26/F0F5F0?text=Stillness+at+Dawn')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0D0D0D/00BFFF?text=Path+to+the+Water')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/265B26/F0F5F0?text=Water+Detail')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0D0D0D/00BFFF?text=Tree+Line+Silhouette')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/153E15/E0EAE0?text=Surface+Reflections')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0C1E0C/00BFFF?text=Blue+Moss+on+Trees')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/153E15/E0EAE0?text=Stillness+at+Dawn')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0C1E0C/00BFFF?text=Path+to+the+Water')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/153E15/E0EAE0?text=Water+Detail')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0C1E0C/00BFFF?text=Tree+Line+Silhouette')"></div>
         </div>
     </section>
 
@@ -319,7 +316,7 @@
         <h3>Connect with the Keepers</h3>
         <p>As this is a private location, please use discretion. For essential communication regarding the Lucas Lucas Colton pond, contact the core group directly.</p>
         <a href="mailto:info@lucascolton-pond.com" class="cta-button">Initiate Contact</a>
-        <p style="font-size: 0.85em; margin-top: 30px; color: var(--color-dark-green);">Note: This is a placeholder email. Please respect the private nature of LLC.</p>
+        <p style="font-size: 0.85em; margin-top: 30px; color: var(--color-text-light);">Note: This is a placeholder email. Please respect the private nature of LLC.</p>
     </section>
 
     <footer>
