@@ -4,93 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LLC - Lucas Lucas Colton</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
         /* --- 1. Color and Font Variables --- */
         :root {
-            --color-black: #0A0A0A;         /* Deep background */
-            --color-dark-green: #1A431A;    /* Primary dark accent/section background */
-            --color-muted-green: #B0C4B0;   /* Light green body text for readability */
-            --color-bright-blue: #00FFFF;   /* NEON Accent for Headings/Links/CTAs */
-            --color-lighter-blue: #CCFFFF;  /* Hover accent */
-            --font-primary: 'Open Sans', sans-serif;
+            --color-black: #0D0D0D;         /* Slightly softer black background */
+            --color-dark-green: #265B26;    /* Richer, deeper dark green */
+            --color-text-light: #F0F5F0;    /* Near-white for primary text contrast */
+            --color-accent-blue: #00BFFF;   /* A calming, contemporary bright blue (Sky Blue) */
+            --color-hover-blue: #66FFFF;    /* Lighter blue for interaction */
+            --font-primary: 'Inter', sans-serif;
         }
 
         /* --- 2. Global Styles --- */
         body {
             background-color: var(--color-black);
-            color: var(--color-muted-green);
+            color: var(--color-text-light);
             font-family: var(--font-primary);
             margin: 0;
             padding: 0;
-            line-height: 1.7; /* Increased line height for better readability on dark background */
+            line-height: 1.65;
+            text-rendering: optimizeLegibility; /* Improves font display */
         }
 
         h1, h2, h3 {
-            color: var(--color-bright-blue);
-            font-weight: 800; /* Extra bold for impact */
-            text-transform: uppercase;
+            color: var(--color-accent-blue);
+            font-weight: 700;
         }
 
         a {
-            color: var(--color-bright-blue);
+            color: var(--color-accent-blue);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         a:hover {
-            color: var(--color-lighter-blue);
+            color: var(--color-hover-blue);
         }
 
         /* --- 3. Header and Navigation (Clean and Fixed) --- */
         header {
             background-color: var(--color-black); 
-            padding: 20px 50px;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed; /* Fixed header like the inspiration site */
+            position: fixed;
             width: 100%;
             box-sizing: border-box;
             z-index: 1000;
-            border-bottom: 2px solid var(--color-dark-green);
+            /* Subtle modern shadow instead of a hard border */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
         }
 
         .logo h1 {
-            font-size: 2.5em;
+            font-size: 1.8em; /* Reduced size for modern feel */
             margin: 0;
             line-height: 1;
         }
 
         .logo p {
-            font-size: 0.9em;
+            font-size: 0.8em;
             margin: 0;
-            color: var(--color-muted-green);
-            letter-spacing: 3px;
-            font-weight: 300;
+            color: var(--color-dark-green); /* Subtle green for secondary text */
+            letter-spacing: 2px;
+            font-weight: 500;
         }
 
         nav a {
             margin-left: 30px;
-            font-size: 1em;
-            letter-spacing: 1px;
-            padding: 5px 0;
+            font-size: 0.95em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        
+        /* Modern underline hover effect */
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--color-accent-blue);
+            transition: width 0.3s ease-in-out;
         }
 
-        /* --- 4. Hero Section (MASSIVE Vibe) --- */
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- 4. Hero Section (Wide and Focused) --- */
         .hero {
-            background: url('https://via.placeholder.com/1500x800/0A0A0A/00FFFF?text=LLC+Pond+View') center/cover no-repeat;
-            min-height: 90vh; /* Takes up most of the screen */
+            background: url('https://via.placeholder.com/1500x800/0D0D0D/00BFFF?text=LLC+Pond+View') center/cover no-repeat;
+            min-height: 85vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            text-align: left;
             position: relative;
-            padding-top: 100px; /* Offset for fixed header */
+            padding-top: 100px; 
+            padding-left: 5%; /* Align content left */
         }
-
-        /* Dark overlay for text readability */
+        
+        /* Softer overlay */
         .hero::after {
             content: '';
             position: absolute;
@@ -98,126 +116,143 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4); 
+            background: linear-gradient(90deg, rgba(13, 13, 13, 0.7) 0%, rgba(13, 13, 13, 0.1) 100%); 
             z-index: 1;
         }
         
         .hero-content {
             z-index: 2; 
-            padding: 20px;
-            max-width: 900px;
+            max-width: 600px;
         }
 
         .hero h2 {
-            font-size: 4.5em; /* Massive heading for impact */
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--color-lighter-blue); /* Lighter blue for better contrast */
+            font-size: 3.5em; 
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: var(--color-text-light); /* White heading on dark image */
         }
 
         .hero p {
-            font-size: 1.5em;
-            margin-bottom: 40px;
+            font-size: 1.25em;
+            margin-bottom: 30px;
             font-weight: 300;
             color: var(--color-muted-green);
         }
 
-        /* --- 5. Content Sections (Uniform Padding) --- */
+        /* --- 5. Content Sections (Minimalist) --- */
         .content-section {
-            padding: 80px 10%;
+            padding: 100px 10%;
             text-align: center;
         }
 
-        /* Features Section (About) - Using a grid for clarity */
+        .content-section h3 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: var(--color-accent-blue);
+        }
+
+        /* About Grid */
+        #about {
+            background-color: var(--color-dark-green);
+        }
+
+        #about h3 {
+            color: var(--color-text-light);
+        }
+
         #about .about-features {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             margin-top: 50px;
             text-align: left;
         }
 
         .feature-item {
-            padding: 20px;
-            border: 1px solid var(--color-dark-green);
-            background-color: rgba(26, 67, 26, 0.2); /* Semi-transparent dark green */
-            transition: background-color 0.3s;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.2); 
+            border-radius: 8px; /* Slightly rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle lift */
         }
 
         .feature-item h4 {
-            color: var(--color-bright-blue);
-            font-size: 1.2em;
+            color: var(--color-accent-blue);
+            font-size: 1.4em;
             margin-top: 0;
-        }
-
-        /* --- 6. Section Headings --- */
-        .content-section h3 {
-            font-size: 3em;
             margin-bottom: 10px;
-            border-bottom: 4px solid var(--color-bright-blue);
-            display: inline-block;
-            padding-bottom: 5px;
-            letter-spacing: 2px;
+            font-weight: 500;
         }
 
-        /* --- 7. CTA Button Styling (High Contrast) --- */
+        .feature-item p {
+            font-weight: 300;
+        }
+
+        /* --- 6. CTA Button Styling (Ghost/Outline style) --- */
         .cta-button {
             display: inline-block;
             background-color: transparent;
-            color: var(--color-bright-blue);
-            padding: 15px 35px;
-            border: 2px solid var(--color-bright-blue);
-            border-radius: 0; /* Sharp edges for modern look */
+            color: var(--color-accent-blue);
+            padding: 14px 30px;
+            border: 2px solid var(--color-accent-blue);
+            border-radius: 5px; 
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 10px;
-            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            letter-spacing: 1.5px;
+            margin-top: 20px;
+            transition: all 0.3s;
         }
 
         .cta-button:hover {
-            background-color: var(--color-bright-blue);
-            color: var(--color-dark-green); /* FLIP COLORS: Blue fill, Dark Green text */
-            border-color: var(--color-bright-blue);
+            background-color: var(--color-accent-blue);
+            color: var(--color-black); /* Dark text on blue fill */
+            border-color: var(--color-accent-blue);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.7); /* Subtle neon glow on hover */
         }
 
-        /* --- 8. Gallery Section (Grid) --- */
+        /* --- 7. Gallery Section (Modern Grid) --- */
         .gallery-section {
-            background-color: var(--color-dark-green); /* Dark Green background for contrast */
-            padding: 80px 10%;
-            text-align: center;
+            background-color: var(--color-black);
+            padding: 100px 5%;
         }
 
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 40px auto 0 auto;
         }
 
         .gallery-item {
-            background-color: var(--color-black);
-            color: var(--color-bright-blue);
-            height: 250px;
+            background-color: var(--color-dark-green);
+            color: var(--color-text-light);
+            height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-style: italic;
             font-weight: 300;
             font-size: 1.1em;
-            border: 1px solid var(--color-bright-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            /* Placeholder for image styling */
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03); /* Subtle zoom effect */
         }
 
-        /* --- 9. Footer --- */
+        /* --- 8. Footer --- */
         footer {
-            background-color: var(--color-black);
-            color: var(--color-muted-green);
+            background-color: var(--color-dark-green); /* Using Dark Green for the footer */
+            color: var(--color-text-light);
             text-align: center;
             padding: 30px 0;
-            border-top: 2px solid var(--color-dark-green);
             font-size: 0.9em;
-            letter-spacing: 1px;
+            font-weight: 300;
         }
     </style>
 </head>
@@ -238,57 +273,57 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>The Vibe Architect of the Woods</h2>
-            <p>Discover the high-contrast serenity and secluded beauty of Lucas Lucas Colton, our private woodland pound.</p>
-            <a href="#gallery" class="cta-button">Experience the Water</a>
+            <h2>The Deep, Quiet Heart of the Woods</h2>
+            <p>Discover Lucas Lucas Colton: an exclusive, high-contrast sanctuary where the deep green forest meets the bright, reflective blue of the water.</p>
+            <a href="#gallery" class="cta-button">View the Gallery</a>
         </div>
     </section>
 
     <section id="about" class="content-section">
-        <h3>Why LLC is Our Vibe</h3>
-        <p>Tucked away deep within the woods, LLC is more than just a pond—it's the only place we'll ever need. This spot is defined by its deep, high-contrast atmosphere.</p>
+        <h3>Why LLC Is Kept Secret</h3>
+        <p>This private pound is carefully maintained by friends to preserve its unique mood. It is a modern refuge from the digital world, focusing on elemental beauty and community.</p>
         
         <div class="about-features">
             
             <div class="feature-item">
-                <h4>Dark & Electric Mood</h4>
-                <p>The black water and forest green canopy create a moody backdrop, punctuated by the bright blue reflection of the sky, giving every visit a unique, electric feel.</p>
+                <h4>Intentional Design</h4>
+                <p>The dark forest green and deep black waters provide a canvas for the electric blue sky—a striking, naturally-occurring color palette that feels intentionally designed.</p>
             </div>
             
             <div class="feature-item">
-                <h4>Friends-Only Sanctuary</h4>
-                <p>This is a place maintained by friends, for friends. Exclusive access ensures the spot remains undisturbed, focused purely on quiet enjoyment and preservation.</p>
+                <h4>Community & Trust</h4>
+                <p>We believe in sharing this spot only through trust. Access is restricted to the inner circle, ensuring its character and serenity are never compromised.</p>
             </div>
             
             <div class="feature-item">
-                <h4>Unrivaled Tranquility</h4>
-                <p>In a world of noise, LLC offers true silence. We focus on preserving the natural ecosystem, allowing nature itself to set the pace for our escape.</p>
+                <h4>Minimal Impact</h4>
+                <p>Our goal is to leave no trace. Every visit reinforces the commitment to the natural, undisturbed ecosystem. The focus is on observation, not interference.</p>
             </div>
             
         </div>
     </section>
 
     <section id="gallery" class="gallery-section">
-        <h3>Glimpses of LLC</h3>
+        <h3>Moments at Lucas Lucas Colton</h3>
         <div class="image-grid">
-            <div class="gallery-item">Photo: Neon Blue Water Surface</div>
-            <div class="gallery-item">Photo: Deep Forest Green View</div>
-            <div class="gallery-item">Photo: Night Sky Reflection</div>
-            <div class="gallery-item">Photo: Wildlife at the Edge</div>
-            <div class="gallery-item">Photo: Sun Glint on Black Water</div>
-            <div class="gallery-item">Photo: Entrance Through Dark Trees</div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/265B26/F0F5F0?text=Surface+Reflections')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0D0D0D/00BFFF?text=Blue+Moss+on+Trees')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/265B26/F0F5F0?text=Stillness+at+Dawn')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0D0D0D/00BFFF?text=Path+to+the+Water')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/265B26/F0F5F0?text=Water+Detail')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/300x300/0D0D0D/00BFFF?text=Tree+Line+Silhouette')"></div>
         </div>
     </section>
 
     <section id="contact" class="content-section contact-section">
         <h3>Connect with the Keepers</h3>
-        <p>Access to LLC is private. For inquiries or updates about the Lucas Lucas Colton pond, please reach out to the friend group directly. Use the highly visible button below!</p>
-        <a href="mailto:info@lucascolton-pond.com" class="cta-button">Email the Crew Now</a>
-        <p class="small-text">Note: This is a placeholder email for demonstration. All inquiries are strictly for the keepers.</p>
+        <p>As this is a private location, please use discretion. For essential communication regarding the Lucas Lucas Colton pond, contact the core group directly.</p>
+        <a href="mailto:info@lucascolton-pond.com" class="cta-button">Initiate Contact</a>
+        <p style="font-size: 0.85em; margin-top: 30px; color: var(--color-dark-green);">Note: This is a placeholder email. Please respect the private nature of LLC.</p>
     </section>
 
     <footer>
-        <p>&copy; 2025 LLC - Lucas Lucas Colton. Preserving the quiet vibe.</p>
+        <p>&copy; 2025 LLC - Lucas Lucas Colton. A Sanctuary Maintained By Trust.</p>
     </footer>
 
 </body>
